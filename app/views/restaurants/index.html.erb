@@ -1,0 +1,19 @@
+
+
+<h1>Restaurants</h1>
+
+<ul style="list-style-type:none;">
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant_path(restaurant.id), data:{turbo_method: :delete, turbo_confirm: "Are you Sure?"} do %>
+        <i class="fa fa-trash p-2"></i>
+      <% end %>
+      <%= link_to restaurant_path(restaurant.id) do %>
+        <i class="fa fa-pencil p-2" aria-hidden="true"></i>
+      <% end %>
+      <strong><%= restaurant.name %></strong>
+    </li>
+  <% end  %>
+</ul>
+
+<%= link_to "Add a new restaurant", new_restaurant_path %>
